@@ -22,8 +22,8 @@ class ViewController: UIViewController {
 		setupLabel()
 		setupImageView()
 		setupImage()
-		view.addSubview(textLabel)
-		view.addSubview(imageContainerView)
+		[textLabel, imageContainerView]
+			.forEach{view.addSubview($0)}
 		setupView()
 		setupLayout()
 	}
@@ -68,9 +68,8 @@ class ViewController: UIViewController {
 	}
 	
 	private func setupLayout() {
-		textLabel.translatesAutoresizingMaskIntoConstraints = false
-		imageContainerView.translatesAutoresizingMaskIntoConstraints = false
-		imageView.translatesAutoresizingMaskIntoConstraints = false
+		[textLabel, imageContainerView, imageView]
+			.forEach{$0.translatesAutoresizingMaskIntoConstraints = false}
 		
 		NSLayoutConstraint.activate([
 			textLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
