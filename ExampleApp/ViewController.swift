@@ -50,6 +50,7 @@ class ViewController: UIViewController {
 	
 	private func setupImage() {
 		imageView.image = UIImage(named: "raccoon")
+		imageView.contentMode = .scaleAspectFill
 		imageView.layer.cornerRadius = 20
 		imageView.clipsToBounds = true
 		imageContainerView.addSubview(imageView)
@@ -74,16 +75,17 @@ class ViewController: UIViewController {
 		NSLayoutConstraint.activate([
 			textLabel.topAnchor.constraint(equalTo: view.topAnchor, constant: 100),
 			textLabel.centerXAnchor.constraint(equalTo: view.centerXAnchor),
+			
 			imageContainerView.topAnchor.constraint(equalTo: textLabel.bottomAnchor, constant: 150),
 			imageContainerView.centerXAnchor.constraint(equalTo: view.centerXAnchor),
 			imageContainerView.heightAnchor.constraint(equalToConstant: 200),
 			imageContainerView.widthAnchor.constraint(equalToConstant: 200),
+			
 			imageView.topAnchor.constraint(equalTo: imageContainerView.topAnchor),
 			imageView.bottomAnchor.constraint(equalTo: imageContainerView.bottomAnchor),
 			imageView.leftAnchor.constraint(equalTo: imageContainerView.leftAnchor),
 			imageView.rightAnchor.constraint(equalTo: imageContainerView.rightAnchor)
 		])
-		imageView.contentMode = .scaleAspectFill // Ну это самое лучшее решение :)
 	}
 }
 
